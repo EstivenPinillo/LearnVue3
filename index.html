@@ -4,57 +4,27 @@
         <meta charset="UTF-8">
         <title>Episode 1: The Absolute Basics</title>
         <script src="https://unpkg.com/vue@3"></script>
-        <style>
-            .colorBackGround {
-                background-color: blue;
-            }
-            .colorRed {
-                background-color: red;
-            }
-        </style>
-
     </head>
     <body>
         <div id="app">
 
-            <button v-bind:class="buttonClass" v-on:click="queso"> 
-                {{greeting}} {{active}}
-            </button>
-
-
-            <p>
-                <input type="text" v-model="greeting">
-            </p>
-
-            <p>
-                {{ greeting }} ({{ greeting.length }})
-            </p>
+            <cheese>Estiven Pinillo</cheese><br>
+            <cheese>Marlon Carabali</cheese>
+            
         </div>
 
-        <script>
-            Vue.createApp({
-                data() {
-                    return {
-                        greeting: 'What is up',
-                        buttonClass: 'colorBackGround',
-                        active: false,
-                    };
-                },
+        <script type="module">
+            import cheese from "./cheese.js";
 
-                methods: {
-                    queso() {
-                        this.active = !this.active;
-                        this.greeting = 'IsWork!'
-                        if(this.active) {
-                            this.buttonClass = "colorRed"
-                        }else {
-                            this.buttonClass = "colorBackGround"
-                        }
+            let app = {
 
-                    }
+                components: {
+                    'cheese': cheese
                 }
 
-            }).mount('#app');
+            };
+
+            Vue.createApp(app).mount('#app');
         </script>
     </body>
 </html>
