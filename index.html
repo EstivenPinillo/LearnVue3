@@ -4,9 +4,24 @@
         <meta charset="UTF-8">
         <title>Episode 1: The Absolute Basics</title>
         <script src="https://unpkg.com/vue@3"></script>
+        <style>
+            .colorBackGround {
+                background-color: blue;
+            }
+            .colorRed {
+                background-color: red;
+            }
+        </style>
+
     </head>
     <body>
         <div id="app">
+
+            <button v-bind:class="buttonClass" v-on:click="queso"> 
+                {{greeting}} {{active}}
+            </button>
+
+
             <p>
                 <input type="text" v-model="greeting">
             </p>
@@ -20,15 +35,25 @@
             Vue.createApp({
                 data() {
                     return {
-                        greeting: 'What is up'
+                        greeting: 'What is up',
+                        buttonClass: 'colorBackGround',
+                        active: false,
                     };
                 },
 
-                mounted() {
-                    setTimeout(() => {
-                        this.greeting = 'Changed';
-                    }, 3000);
+                methods: {
+                    queso() {
+                        this.active = !this.active;
+                        this.greeting = 'IsWork!'
+                        if(this.active) {
+                            this.buttonClass = "colorRed"
+                        }else {
+                            this.buttonClass = "colorBackGround"
+                        }
+
+                    }
                 }
+
             }).mount('#app');
         </script>
     </body>
