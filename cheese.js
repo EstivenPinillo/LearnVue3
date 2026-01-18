@@ -5,7 +5,15 @@ export default {
         };
     },
     template: `<button>
-        <slot></slot>
+        <slot></slot> {{typecheese}}
     </button>`,
+    props: {
+
+        typecheese: {
+            typecheese: String,
+            default: 'Costeno'
+        },
+
+    },
 
 };
