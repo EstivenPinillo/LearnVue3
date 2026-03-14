@@ -12,16 +12,25 @@
             <br>
             <br>
             <cheese typecheese="Cuajado">Marlon Carabali</cheese>
+            <br>
+            <br>
+            <milk>Queso</milk>
+            <listcode></listcode>
+
             
         </div>
 
         <script type="module">
             import cheese from "./cheese.js";
+            import milk from "./milk.js";
+            import listcode from "./listcode.js";
 
             let app = {
 
                 components: {
-                    'cheese': cheese
+                    'cheese': cheese,
+                    'milk': milk,
+                    'listcode': listcode,
                 }
 
             };

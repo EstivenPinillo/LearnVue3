@@ -1,11 +1,12 @@
 export default {
     data() {
         return {
-            leche: true
+            leche: true,
         };
     },
-    template: `<button>
+    template: `<button @click="guess">
         <slot></slot> {{typecheese}}
+        <div v-show="yesbloque">En bloque</div>
     </button>`,
     props: {
 
@@ -13,7 +14,17 @@ export default {
             typecheese: String,
             default: 'Costeno'
         },
-
+        yesbloque: {
+            yesbloque: Boolean,
+            default: false
+        }
+        
+    },
+    methods: {
+        guess() {
+            
+            this.$emit('guess',"Mango ...");
+        }
     },
 
 };
